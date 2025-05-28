@@ -1,0 +1,46 @@
+/* Mobile-first styles for PWA */
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Override default button styles to be more mobile-friendly */
+button {
+  padding: 12px !important;
+  touch-action: manipulation;
+}
+
+/* Increase touch target sizes for mobile */
+a, button, input, select, textarea {
+  font-size: 16px !important;
+}
+
+/* Remove blue highlight on touch in mobile browsers */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .MuiContainer-root {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .MuiTypography-h5 {
+    font-size: 1.3rem !important;
+  }
+}
+
+/* PWA fullscreen mode adjustments */
+@media all and (display-mode: fullscreen) {
+  body {
+    /* Ensure content doesn't get hidden behind system UI elements */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
