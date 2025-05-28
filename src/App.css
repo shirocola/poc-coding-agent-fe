@@ -1,42 +1,46 @@
+/* Mobile-first styles for PWA */
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Override default button styles to be more mobile-friendly */
+button {
+  padding: 12px !important;
+  touch-action: manipulation;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Increase touch target sizes for mobile */
+a, button, input, select, textarea {
+  font-size: 16px !important;
+}
+
+/* Remove blue highlight on touch in mobile browsers */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .MuiContainer-root {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
-  to {
-    transform: rotate(360deg);
+
+  .MuiTypography-h5 {
+    font-size: 1.3rem !important;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* PWA fullscreen mode adjustments */
+@media all and (display-mode: fullscreen) {
+  body {
+    /* Ensure content doesn't get hidden behind system UI elements */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
